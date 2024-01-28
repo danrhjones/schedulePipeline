@@ -1,0 +1,13 @@
+[Unit]
+Description=My WSGI app
+After=network.target
+
+[Service]
+Type=simple
+User=nanodano
+WorkingDirectory=/home/nanodano
+ExecStart=/path/to/venv/bin/waitress-serve --listen=127.0.0.1:8001 app.wsgi:application
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
